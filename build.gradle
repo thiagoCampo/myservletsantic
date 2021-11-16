@@ -1,0 +1,36 @@
+plugins {
+    id 'java'
+    id 'war'    //webapp jar file (.war), jar files are files containing all classes and info needed to run a java app
+    id 'org.gretty' version '3.0.6' //This includes a jetty webserver (Java web server and servlet container to communicate client and server
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    jcenter()   //gretty does not exist in mavenCentral
+}
+
+war {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    from{
+        //all jar files will be zipped into war file
+        configurations.runtimeClasspath.collect{
+            it.isDirectory() ? it : zipTree(it)
+        }
+    }
+}
+
+task stage (dependsOn: ['build', 'clean'])
+build.mustRunAfter clean
+
+dependencies {
+    //to include servlet libraries
+    compileOnly group: 'javax.servlet', name: 'javax.servlet-api', version: '4.0.1'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+}
+
+test {
+    useJUnitPlatform()
+}
