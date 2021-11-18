@@ -17,6 +17,11 @@ public class myServlet extends HttpServlet {
         resp.getWriter().write("<head>");
         resp.getWriter().write("<title> Hello, world!</title>");
         resp.getWriter().write("</head");
+        resp.getWriter().write("<body>");
+
+        resp.getWriter().write("<h1>Hello World</h1>");
+
+        resp.getWriter().write("</body>");
         resp.getWriter().write("</html>");
     }
 
