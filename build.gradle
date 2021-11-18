@@ -1,7 +1,7 @@
 plugins {
     id 'java'
     id 'war'    //webapp jar file (.war), jar files are files containing all classes and info needed to run a java app
-    id 'org.gretty' version '3.0.6' //This includes a jetty webserver (Java web server and servlet container to communicate client and server
+    //id 'org.gretty' version '3.0.6' //This includes a jetty webserver (Java web server and servlet container to communicate client and server
 }
 
 group 'org.example'
