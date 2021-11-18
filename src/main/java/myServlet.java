@@ -17,7 +17,7 @@ public class myServlet extends HttpServlet {
         resp.getWriter().write("<head>");
         resp.getWriter().write("<title> Hello, world!</title>");
         resp.getWriter().write("</head");
-        resp.getWriter().write("Hello, world!");
+        resp.getWriter().write("</html>");
     }
 
     @Override
